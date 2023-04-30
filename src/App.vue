@@ -8,12 +8,14 @@
   <main>
     <introduction></introduction>
     <about></about>
+    <works></works>
   </main>
 </template>
 
 <script setup>
 import Introduction from "./components/Introduction.vue";
 import About from "./components/About.vue";
+import Works from "./components/Works.vue";
 </script>
 
 <style lang="scss">

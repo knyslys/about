@@ -8,9 +8,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
     "tsparticles": "^2.9.3",
     "vue": "^3.2.47",
+    "vue-animate-onscroll": "^1.0.8",
     "vue-kinesis": "^2.0.5",
+    "vue-observe-visibility": "^2.0.0-alpha.1",
+    "vue3-animate-onscroll": "^1.0.6",
     "vue3-particles": "^2.9.3"
   },
   "devDependencies": {

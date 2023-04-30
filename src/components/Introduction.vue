@@ -86,7 +86,7 @@
                 fill: false,
                 font: 'Raleway',
                 style: '',
-                value: '<script>code'.split(''),
+                value: '<script>'.split(''),
                 weight: '400',
               },
             ],
