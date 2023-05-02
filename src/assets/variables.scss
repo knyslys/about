@@ -2,6 +2,7 @@
 $font-family: "Raleway", sans-serif;
 $background-color: #e8e9e5;
 $attention-color: #4bc6d3;
+$attention-color-2: #198591;
 $main-color: #dfc464;
 $shade-color: #4a5057;
 span {
@@ -14,4 +15,8 @@ p {
 
 .icon {
   font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.7rem;
 }

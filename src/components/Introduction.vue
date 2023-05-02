@@ -109,7 +109,7 @@
         detectRetina: true,
       }"
     />
-    <kinesis-container class="circle-container">
+    <kinesis-container class="circle-container" event="move">
       <kinesis-element class="circle circle--blue"></kinesis-element>
       <kinesis-element class="circle circle--yellow"></kinesis-element>
       <kinesis-element class="circle circle--purple"></kinesis-element>
@@ -118,32 +118,62 @@
       <kinesis-element class="circle circle--blue"></kinesis-element>
 
       <kinesis-element tag="h1"
-        ><kinesis-element :strength="5" tag="span">V</kinesis-element
-        ><kinesis-element :strength="8" tag="span">A</kinesis-element
-        ><kinesis-element :strength="10" tag="span">K</kinesis-element>
-        <kinesis-element :strength="12" tag="span">A</kinesis-element>
-        <kinesis-element :strength="10" tag="span">R</kinesis-element>
-        <kinesis-element :strength="16" tag="span">I</kinesis-element>
-        <kinesis-element :strength="16" tag="span">S</kinesis-element>
-        <kinesis-element :strength="30" tag="span">&nbsp</kinesis-element>
-        <kinesis-element :strength="8" tag="span">S</kinesis-element>
-        <kinesis-element :strength="12" tag="span">E</kinesis-element>
-        <kinesis-element :strength="16" tag="span">R</kinesis-element>
-        <kinesis-element :strength="10" tag="span">B</kinesis-element>
-        <kinesis-element :strength="10" tag="span">E</kinesis-element>
-        <kinesis-element :strength="18" tag="span">N</kinesis-element>
-        <kinesis-element :strength="14" tag="span">T</kinesis-element>
-        <kinesis-element :strength="12" tag="span">A</kinesis-element>
+        ><kinesis-element :strength="windowWidth < 1000 ? 0 : 10" tag="span"
+          >V</kinesis-element
+        ><kinesis-element :strength="windowWidth < 1000 ? 0 : 12" tag="span"
+          >A</kinesis-element
+        ><kinesis-element :strength="windowWidth < 1000 ? 0 : 6" tag="span"
+          >K</kinesis-element
+        >
+        <kinesis-element :strength="windowWidth < 1000 ? 0 : 4" tag="span"
+          >A</kinesis-element
+        >
+        <kinesis-element :strength="windowWidth < 1000 ? 0 : 3" tag="span"
+          >R</kinesis-element
+        >
+        <kinesis-element :strength="windowWidth < 1000 ? 0 : 15" tag="span"
+          >I</kinesis-element
+        >
+        <kinesis-element :strength="windowWidth < 1000 ? 0 : 12" tag="span"
+          >S</kinesis-element
+        >
+        <kinesis-element :strength="windowWidth < 1000 ? 0 : 6" tag="span"
+          >&nbsp</kinesis-element
+        >
+        <kinesis-element :strength="windowWidth < 1000 ? 0 : 8" tag="span"
+          >S</kinesis-element
+        >
+        <kinesis-element :strength="windowWidth < 1000 ? 0 : 15" tag="span"
+          >E</kinesis-element
+        >
+        <kinesis-element :strength="windowWidth < 1000 ? 0 : 10" tag="span"
+          >R</kinesis-element
+        >
+        <kinesis-element :strength="windowWidth < 1000 ? 0 : 17" tag="span"
+          >B</kinesis-element
+        >
+        <kinesis-element :strength="windowWidth < 1000 ? 0 : 12" tag="span"
+          >E</kinesis-element
+        >
+        <kinesis-element :strength="windowWidth < 1000 ? 0 : 6" tag="span"
+          >N</kinesis-element
+        >
+        <kinesis-element :strength="windowWidth < 1000 ? 0 : 10" tag="span"
+          >T</kinesis-element
+        >
+        <kinesis-element :strength="windowWidth < 1000 ? 0 : 5" tag="span"
+          >A</kinesis-element
+        >
       </kinesis-element>
 
-      <kinesis-element tag="span">
+      <kinesis-element tag="span" v-observe-visibility="setNav">
         Front End developer, who codes with love and passion!
       </kinesis-element>
       <kinesis-element class="icon-container">
-        <kinesis-element :strength="10">
+        <kinesis-element :strength="windowWidth < 1000 ? 0 : 10">
           <Icon icon="ph:github-logo" class="icon" />
         </kinesis-element>
-        <kinesis-element :strength="5">
+        <kinesis-element :strength="windowWidth < 1000 ? 0 : 5">
           <Icon
             icon="streamline:computer-logo-linkedin-network-linkedin-professional"
             class="icon"
@@ -157,9 +187,24 @@
 <script setup>
 import { Icon } from "@iconify/vue";
 import { loadFull } from "tsparticles";
+import { useNavigation } from "../stores/navigation";
+import { ref, onMounted } from "vue";
+import Container from "./UI/Container.vue";
+const nav = useNavigation();
+
+const windowWidth = ref(window.innerWidth);
+
+onMounted(() => {
+  window.addEventListener("resize", () => {
+    windowWidth.value = window.innerWidth;
+  });
+});
 
 const particlesInit = async (engine) => {
   await loadFull(engine);
+};
+const setNav = (isVisible) => {
+  if (isVisible) nav.setNavigation("home");
 };
 
 const particlesLoaded = async (container) => {
@@ -172,6 +217,7 @@ const particlesLoaded = async (container) => {
 section {
   scroll-snap-align: start;
   overflow-x: hidden;
+  text-align: center;
 }
 h1 span {
   font-size: 3rem;
@@ -249,4 +295,14 @@ h1 span {
 // .icon {
 //   font-size: 1.6rem;
 // }
+
+@media (width <= 39.25em) {
+  span {
+    font-size: 1rem;
+  }
+
+  h1 span {
+    font-size: 2rem;
+  }
+}
 </style>

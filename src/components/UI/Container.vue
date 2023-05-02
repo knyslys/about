@@ -10,4 +10,12 @@
   margin: 0 auto;
   padding: 2rem;
 }
+
+@media (width <= 43.75em) {
+  .container {
+    max-width: 95%;
+    margin: 0 auto;
+    padding: 0.5rem;
+  }
+}
 </style>

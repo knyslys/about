@@ -5,7 +5,9 @@
         <div class="about-text">
           <div class="line" :class="{ 'line--first': drawLines }"></div>
           <div class="line" :class="{ 'line--second': drawLines }"></div>
-
+          <h2 class="title" v-animate-onscroll="'animate__animated fadeInDown'">
+            About me
+          </h2>
           <p
             v-observe-visibility="test"
             style="--delay: 1s"
@@ -51,9 +53,10 @@
         </div>
         <div
           class="about-img"
-          v-animate-onscroll="'animate__animated animate__slideInUp'"
+          v-animate-onscroll="'animate__animated slideInUp'"
         >
           <div class="line" :class="{ 'line--right': drawLines }"></div>
+          <img src="/images/czx.webp" class="prof-img" alt="Vakaris Serbenta" />
         </div>
       </div>
     </container>
@@ -62,11 +65,16 @@
 <script setup>
 import "animate.css";
 import Container from "./UI/Container.vue";
+import { useNavigation } from "../stores/navigation.js";
+const nav = useNavigation();
 import { ref } from "vue";
 const drawLines = ref(false);
 
 const test = (isVisible) => {
-  if (isVisible) drawLines.value = true;
+  if (isVisible) {
+    nav.setNavigation("about");
+    drawLines.value = true;
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -80,6 +88,15 @@ const test = (isVisible) => {
   z-index: 1;
 }
 
+.title {
+  color: $attention-color-2;
+}
+
+.prof-img {
+  width: clamp(15rem, 80%, 35rem);
+  border: 12px solid $shade-color;
+}
+
 .fadeInDown {
   animation: fadeInLeft 1s linear;
   animation-fill-mode: backwards;
@@ -90,12 +107,12 @@ const test = (isVisible) => {
   top: -12px;
   right: 0;
   background-color: $shade-color;
-  animation: lineMovementFirst 1s ease-in-out forwards 2s;
+  animation: lineMovementFirst 1s ease-in-out forwards 1.65s;
 }
 
 .line--second {
   top: -12px;
-  left: 0;
+  right: 100%;
   width: 12px;
   height: 0;
   background-image: linear-gradient(
@@ -126,7 +143,7 @@ p {
   font-size: 1.2rem;
 }
 .about-text {
-  width: 500px;
+  // width: 500px;
   // height: 500px;
   // background-color: $shade-color;
   // overflow-x: hidden;
@@ -143,7 +160,7 @@ p {
   position: absolute;
 
   top: 0;
-  left: 0;
+  left: 100%;
   background-color: $shade-color;
   width: 0;
   height: 12px;
@@ -155,10 +172,17 @@ p {
 
 .about-img {
   position: relative;
-  width: 400px;
-  height: 400px;
-  background-color: $shade-color;
+  display: flex;
+  justify-content: end;
+  // width: 400px;
+  // height: 400px;
+  // background-color: $shade-color;
   // justify-self: start;
+}
+
+.slideInUp {
+  animation: slideInUp 1s linear;
+  animation-fill-mode: backwards;
 }
 
 @keyframes lineMovementFirst {
@@ -176,12 +200,44 @@ p {
     height: 100%;
   }
 }
+
 @keyframes lineMovement {
   0% {
   }
 
   100% {
-    width: 100%;
+    width: 150%;
+  }
+}
+
+@media (width <= 68.75em) {
+  .about-grid {
+    grid-template-columns: 1fr;
+
+    .about-img {
+      grid-row: -1;
+      justify-content: center;
+      .line {
+        display: none;
+      }
+    }
+
+    .about-text {
+      .line--first {
+        top: -12px;
+        right: 100%;
+        // transform-origin: right;
+        top: -22px;
+        right: 0;
+      }
+
+      .line--second {
+        top: -22px;
+        right: 99%;
+        width: 12px;
+        height: 0;
+      }
+    }
   }
 }
 </style>

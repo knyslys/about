@@ -8,7 +8,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vueuse/core": "^10.1.0",
     "animate.css": "^4.1.1",
+    "pinia": "^2.0.35",
     "tsparticles": "^2.9.3",
     "vue": "^3.2.47",
     "vue-animate-onscroll": "^1.0.8",
