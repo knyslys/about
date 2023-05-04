@@ -171,13 +171,17 @@
       </kinesis-element>
       <kinesis-element class="icon-container">
         <kinesis-element :strength="windowWidth < 1000 ? 0 : 10">
-          <Icon icon="ph:github-logo" class="icon" />
+          <a href="https://www.linkedin.com/in/vakaris-serbenta-259790259/">
+            <Icon icon="ph:github-logo" class="icon" />
+          </a>
         </kinesis-element>
         <kinesis-element :strength="windowWidth < 1000 ? 0 : 5">
-          <Icon
-            icon="streamline:computer-logo-linkedin-network-linkedin-professional"
-            class="icon"
-          />
+          <a href="https://github.com/knyslys">
+            <Icon
+              icon="streamline:computer-logo-linkedin-network-linkedin-professional"
+              class="icon"
+            />
+          </a>
         </kinesis-element>
       </kinesis-element>
     </kinesis-container>
@@ -235,7 +239,7 @@ h1 span {
 }
 .circle-container {
   min-height: 100vh;
-  min-width: 100vw;
+  min-width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -283,7 +287,7 @@ h1 span {
   margin-top: 1rem;
 }
 
-.icon-container div {
+.icon-container a {
   background-color: $attention-color;
   border-radius: 500%;
   padding: 0.5rem;
@@ -291,6 +295,10 @@ h1 span {
   justify-content: center;
   align-items: center;
   color: $background-color;
+  transition: 0.5s all linear;
+  &:hover {
+    color: $shade-color;
+  }
 }
 // .icon {
 //   font-size: 1.6rem;

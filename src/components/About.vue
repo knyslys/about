@@ -35,7 +35,7 @@
             back to coding, but this time as a front end developer.
           </p>
           <p
-            style="--delay: 4s"
+            style="--delay: 3s"
             v-animate-onscroll="'animate__animated fadeInDown'"
           >
             I wanted to focus on the visual and user interface aspects of web
