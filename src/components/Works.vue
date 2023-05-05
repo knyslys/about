@@ -76,7 +76,7 @@ const works = [
   },
   {
     framework: "vue",
-    name: "Color Generator",
+    name: "Color Generator for website",
     site: "https://github.com/knyslys/vue-palete",
     source: "https://github.com/knyslys/vue-palete",
     img: "images/gener.webp",

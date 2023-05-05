@@ -6,9 +6,11 @@
     v-if="windowWidth > 1000"
   >
     <div class="overlay" v-if="hovered && props.name === props.selectedWork">
+      <span>{{ props.name }}</span>
       <a :href="props.site">Visit</a>
       <a :href="props.source">Source</a>
     </div>
+
     <div class="img-wrapper" @click="setWork">
       <img :src="props.img" :alt="props.name" />
     </div>
@@ -102,7 +104,13 @@ li {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
+  gap: 0.5rem;
+  span {
+    font-size: 1rem;
+    background-color: white;
+    padding: 0.2rem;
+    border-radius: 10px;
+  }
   a {
     color: $background-color;
     text-decoration: none;
