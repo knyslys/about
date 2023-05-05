@@ -74,6 +74,13 @@ const works = [
     source: "https://github.com/knyslys/Estate",
     img: "images/renty.webp",
   },
+  {
+    framework: "vue",
+    name: "Color Generator",
+    site: "https://github.com/knyslys/vue-palete",
+    source: "https://github.com/knyslys/vue-palete",
+    img: "images/gener.webp",
+  },
 ];
 const setActiveWork = (name) => {
   workIsActive.value = true;
