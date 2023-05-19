@@ -41,6 +41,13 @@ const nav = useNavigation();
 const works = [
   {
     framework: "vue",
+    name: "JSComputers ESHOP",
+    site: "https://superb-chimera-7e90db.netlify.app/",
+    source: "https://github.com/knyslys/vue-eshop",
+    img: "images/computers.webp",
+  },
+  {
+    framework: "vue",
     name: "Weather application",
     site: "https://stunning-dieffenbachia-f61a66.netlify.app/",
     source: "https://github.com/knyslys/vue-weather-prebuilt",
@@ -60,27 +67,27 @@ const works = [
     source: "https://github.com/knyslys/hedgehog-deals",
     img: "images/gaming.webp",
   },
-  {
-    framework: "none",
-    name: "Orange food site",
-    site: "https://serene-rugelach-2dde5f.netlify.app/",
-    source: "https://github.com/knyslys/food-prebuild",
-    img: "images/food.webp",
-  },
-  {
-    framework: "none",
-    name: "Renty",
-    site: "https://fanciful-faun-287d7f.netlify.app/",
-    source: "https://github.com/knyslys/Estate",
-    img: "images/renty.webp",
-  },
-  {
-    framework: "vue",
-    name: "Color Generator for website",
-    site: "https://github.com/knyslys/vue-palete",
-    source: "https://github.com/knyslys/vue-palete",
-    img: "images/gener.webp",
-  },
+  // {
+  //   framework: "none",
+  //   name: "Orange food site",
+  //   site: "https://serene-rugelach-2dde5f.netlify.app/",
+  //   source: "https://github.com/knyslys/food-prebuild",
+  //   img: "images/food.webp",
+  // },
+  // {
+  //   framework: "none",
+  //   name: "Renty",
+  //   site: "https://fanciful-faun-287d7f.netlify.app/",
+  //   source: "https://github.com/knyslys/Estate",
+  //   img: "images/renty.webp",
+  // },
+  // {
+  //   framework: "vue",
+  //   name: "Color Generator for website",
+  //   site: "https://github.com/knyslys/vue-palete",
+  //   source: "https://github.com/knyslys/vue-palete",
+  //   img: "images/gener.webp",
+  // },
 ];
 const setActiveWork = (name) => {
   workIsActive.value = true;
