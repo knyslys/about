@@ -41,6 +41,13 @@ const nav = useNavigation();
 const works = [
   {
     framework: "vue",
+    name: "Chatzy chat application",
+    site: "https://remarkable-lokum-9c58d2.netlify.app",
+    source: "https://github.com/knyslys/chat-application",
+    img: "images/chatzy.webp",
+  },
+  {
+    framework: "vue",
     name: "JSComputers ESHOP",
     site: "https://superb-chimera-7e90db.netlify.app/",
     source: "https://github.com/knyslys/vue-eshop",
